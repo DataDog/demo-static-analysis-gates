@@ -7,12 +7,12 @@ def connect_database():
     return con
 
 def get_products(db_connection, limit, offset):
-    products = []
+    productFromDatabase = []
     cursor = db_connection.cursor();
-    res = cursor.execute("SELECT id, title from products");
+    res = cursor.execute(f"SELECT id, title from products LIMIT {limit} OFFSET {offset}");
     for v in res:
-        products.append(Product(v[0], v[1]))
+        productFromDatabase.append(Product(v[0], v[1]))
 
-    return products[offset:offset+limit]
+    return productFromDatabase
 
 
