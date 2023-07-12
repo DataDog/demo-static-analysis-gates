@@ -16,3 +16,4 @@ def product_list():
 def product_by_id(product_id):
     products = db.get_product_by_id(db_connection, product_id)
     return jsonify(products)
+
