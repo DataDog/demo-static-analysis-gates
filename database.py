@@ -19,5 +19,6 @@ def get_products(db_connection):
 
 def get_product_by_id(db_connection, product_id):
     cursor = db_connection.cursor()
-    res = cursor.execute(f"SELECT id, title from products WHERE id={product_id}")
-    return [Product(v[0], v[1]) for v in res]
+    query = "SELECT id, title from products WHERE id=?"
+    res = cursor.execute(query, (product_id,))
+    return res.fetchone()
