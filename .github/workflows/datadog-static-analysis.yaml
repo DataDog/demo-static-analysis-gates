@@ -20,7 +20,6 @@ jobs:
           dd_api_key: ${{ secrets.DD_API_KEY }}
           dd_service: "product-microservice"
           dd_env: "github"
-          dd_site: "datadoghq.com"
 
   datadog-gate:
     needs: check-quality
@@ -34,5 +33,4 @@ jobs:
           DD_BETA_COMMANDS_ENABLED=true
           DATADOG_API_KEY=${{ secrets.DD_API_KEY }}
           DATADOG_APP_KEY=${{ secrets.DD_APP_KEY }}
-          DATADOG_SITE="datadoghq.com"
           datadog-ci gate evaluate
