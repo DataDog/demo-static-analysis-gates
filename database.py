@@ -13,3 +13,12 @@ def get_products(db_connection):
     cursor = db_connection.cursor()
     res = cursor.execute("SELECT id, title from products")
     return [Product(v[0], v[1]) for v in res]
+
+
+
+def get_product_by_id(db_connection, product_id):
+    cursor = db_connection.cursor()
+    query = "SELECT id, title from products WHERE id=%s"
+    cursor.execute(query, (product_id,))
+    results = cursor.fetchall()
+    return [Product(v[0], v[1]) for v in results]
