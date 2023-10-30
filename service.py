@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 
 import database as db
+
 app = Flask(__name__)
 
 db_connection = db.connect_database()
@@ -12,3 +13,7 @@ def product_list():
     return jsonify(products)
 
 
+def print_product_list():
+    products = db.get_products(db_connection)
+    for i in products:
+        print(i.name)
