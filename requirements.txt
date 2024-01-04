@@ -1,2 +1,4 @@
-flask
+flask~=3.0.0
 sqlite3
+
+requests~=2.31.0
