@@ -4,3 +4,6 @@ rulesets:
   - python-inclusive
   - python-design
   - python-security
+  - java-best-practices
+  - java-code-style
+  - java-security
